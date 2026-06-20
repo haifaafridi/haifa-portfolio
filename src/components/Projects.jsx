@@ -1,4 +1,5 @@
 import { projects } from "../content";
+import Reveal from "./Reveal";
 
 function ProjectCard({ project, index }) {
   return (
@@ -53,12 +54,16 @@ export default function Projects() {
   return (
     <section id="work" className="section">
       <div className="section__inner">
-        <p className="section__eyebrow">Selected work</p>
-        <h2 className="section__title">Three systems, three different failure modes solved.</h2>
+        <Reveal>
+          <p className="section__eyebrow">Selected work</p>
+          <h2 className="section__title">Three systems, three different failure modes solved.</h2>
+        </Reveal>
 
         <div className="projects-list">
           {projects.map((p, i) => (
-            <ProjectCard key={p.id} project={p} index={i} />
+            <Reveal key={p.id} delay={i * 90}>
+              <ProjectCard project={p} index={i} />
+            </Reveal>
           ))}
         </div>
       </div>

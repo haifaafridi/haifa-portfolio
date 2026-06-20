@@ -92,12 +92,44 @@ export const projects = [
   },
 ];
 
+// Each skill links to the project(s) where it was actually used, with a short note.
+// shortName values must match a project's shortName in `projects` above.
 export const skills = {
-  Languages: ["Python", "TypeScript/JavaScript (ES6+)", "Java", "C++", "SQL"],
-  Frontend: ["React.js", "Redux", "Vite", "Tailwind CSS", "Bootstrap", "HTML5/CSS3"],
-  "Backend & APIs": ["Node.js", "Express", "FastAPI", "REST APIs", "WebSockets", "JWT", "asyncio"],
-  "Databases & Tools": ["PostgreSQL", "MySQL", "Prisma ORM", "Git", "Playwright", "PM2", "Linux"],
+  Languages: [
+    { name: "Python", used: ["Trading Automation", "Verity"], note: "Core language for both the trading bot and the NLP pipeline" },
+    { name: "TypeScript/JavaScript (ES6+)", used: ["FSSS"], note: "Typed the entire PERN stack frontend and API layer" },
+    { name: "Java", used: [], note: "Coursework + early OOP projects" },
+    { name: "C++", used: [], note: "Data structures & algorithms coursework" },
+    { name: "SQL", used: ["FSSS"], note: "Schema design and queries behind 6 core modules" },
+  ],
+  Frontend: [
+    { name: "React.js", used: ["FSSS"], note: "Built the full multi-module UI for the school system" },
+    { name: "Redux", used: ["FSSS"], note: "State management across modules" },
+    { name: "Vite", used: ["FSSS"], note: "Dev tooling and build pipeline" },
+    { name: "Tailwind CSS", used: ["FSSS"], note: "Styling system for the dashboard UI" },
+    { name: "Bootstrap", used: [], note: "Used in earlier frontend internship work" },
+    { name: "HTML5/CSS3", used: ["FSSS"], note: "Foundation for every interface built" },
+  ],
+  "Backend & APIs": [
+    { name: "Node.js", used: ["FSSS"], note: "Powers the Express API layer" },
+    { name: "Express", used: ["FSSS"], note: "REST API serving all 6 modules" },
+    { name: "FastAPI", used: ["Verity"], note: "Backend serving real-time NLP inference" },
+    { name: "REST APIs", used: ["FSSS", "Verity"], note: "Designed and secured endpoints in both systems" },
+    { name: "WebSockets", used: ["Trading Automation"], note: "Dual-layer live signal detection" },
+    { name: "JWT", used: ["FSSS"], note: "Authentication with bcrypt password hashing" },
+    { name: "asyncio", used: ["Trading Automation"], note: "Concurrent signal handling under 3s latency" },
+  ],
+  "Databases & Tools": [
+    { name: "PostgreSQL", used: ["FSSS"], note: "Database-level business rule enforcement" },
+    { name: "MySQL", used: [], note: "Coursework and practice projects" },
+    { name: "Prisma ORM", used: ["FSSS"], note: "Transactions used to eliminate race conditions" },
+    { name: "Git", used: ["FSSS"], note: "Branching workflow across a multi-university team" },
+    { name: "Playwright", used: ["Trading Automation"], note: "Stealth browser automation with persistent auth" },
+    { name: "PM2", used: ["FSSS"], note: "Process management with auto-restart on boot" },
+    { name: "Linux", used: ["FSSS"], note: "LAN deployment environment" },
+  ],
 };
+
 
 export const credentials = [
   "Meta Full-Stack Developer Specialization",

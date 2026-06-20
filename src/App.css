@@ -523,3 +523,173 @@
     gap: 0.4rem;
   }
 }
+
+/* ============ Scroll reveal (used by Reveal.jsx) ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============ Hero entrance animation ============ */
+.hero-anim {
+  opacity: 0;
+  animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ============ Skills: hint + hover cards ============ */
+.skills-hint {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  margin-top: -0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.skill-tag {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: var(--bg);
+  border: 1px solid var(--surface-edge);
+  padding: 0.3rem 0.65rem;
+  border-radius: 3px;
+  cursor: default;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.skill-tag--proven {
+  cursor: pointer;
+  border-color: var(--sage);
+  background: rgba(107, 125, 95, 0.06);
+}
+.skill-tag--proven::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  opacity: 0.85;
+}
+.skill-tag--proven:hover,
+.skill-tag--proven.is-active {
+  border-color: var(--terracotta);
+  background: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -10px rgba(33, 28, 22, 0.35);
+}
+
+.skill-tag__pop {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px) scale(0.98);
+  z-index: 20;
+  width: 200px;
+  max-width: 70vw;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 6px;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.skill-tag.is-active .skill-tag__pop {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+.skill-tag__pop::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+.skill-tag__pop-used {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--amber);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+.skill-tag__pop-note {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(250, 246, 238, 0.88);
+}
+
+/* ============ Project card hover polish ============ */
+.constraint-tag {
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.project:hover .constraint-tag {
+  background: rgba(193, 82, 31, 0.13);
+}
+
+/* ============ Nav link underline hover ============ */
+.site-header__nav--desktop a:not(.site-header__cta) {
+  background-image: linear-gradient(var(--terracotta), var(--terracotta));
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.2s ease, color 0.15s ease;
+}
+.site-header__nav--desktop a:not(.site-header__cta):hover {
+  background-size: 100% 1.5px;
+}
+
+/* ============ Contact link hover underline ============ */
+.contact__link {
+  position: relative;
+}
+.contact__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: var(--terracotta);
+  transition: width 0.2s ease;
+}
+.contact__link:hover::after {
+  width: 100%;
+}
